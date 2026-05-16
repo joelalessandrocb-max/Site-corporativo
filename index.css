@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+
+  --color-brand-green: #046c31;
+  --color-brand-yellow: #f7b42b;
+  --color-brand-dark: #0f1c14;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-gray-900 bg-white;
+  }
+}
+
+.curved-bg {
+  clip-path: ellipse(150% 100% at 50% 0%);
+}
+
+.portfolio-card {
+  @apply relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-xl hover:-translate-y-1;
+}
+
+.section-title {
+  @apply font-display text-4xl md:text-5xl font-bold tracking-tight mb-4;
+}
+
+.logo-accent {
+  @apply inline-block w-8 h-1 bg-brand-yellow mr-2 align-middle;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: fit-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
